@@ -20,7 +20,7 @@ class StoreController extends Controller
 
         try {
             $client = new Client;
-            $payload = ['headers' => ['x-access-token' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOjIzNDgxMjYyMzM0MTEsImVtYWlsIjoicGVzb3ZhMTQxMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MxMjMiLCJpc19hY3RpdmUiOmZhbHNlLCJ1c2VyX3JvbGUiOiJzdG9yZV9hZG1pbiIsImlhdCI6MTU5MzU2NTM4OSwiZXhwIjoxNTkzNTY4OTg5fQ.qiLPWeUjv27o-iPM-52wVYCwWUm9OH52p2glcnXBgqs']];
+            $payload = ['headers' => ['x-access-token' => Cookie::get('api_token')]];
             $response = $client->request("GET", $url, $payload);
             $statusCode = $response->getStatusCode();
             $body = $response->getBody()->getContents();
